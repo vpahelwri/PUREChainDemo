@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/Vaibhav.Pahel/Downloads/Test.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productive use of energy in agrifood chains</title>
+<link href="./Foundation page - PURE Value Chain_files/css2" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --green-deep: #32864B;
+    --green-mid: #32864B;
+    --green-light: #81C67B;
+    --green-pale: #E1F5EE;
+    --green-leaf: #32864B;
+    --green-leaf-light: #EAF3DE;
+    --green-leaf-mid: #81C67B;
+    --text-primary: #1a1a18;
+    --text-secondary: #4a4a46;
+    --text-muted: #888780;
+    --bg: #f7f6f2;
+    --bg-card: #ffffff;
+    --border: rgba(0, 0, 0, 0.09);
+    --border-mid: rgba(0, 0, 0, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+}
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 32px 20px 48px;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .page-header h1 {
+    font-family: 'Arial', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    color: var(--green-deep);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .page-header p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-left: 2px;
+  }
+
+  /* DRIVERS ROW */
+  .drivers-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .driver-chip {
+    flex: 1 1 140px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-pill);
+    padding: 9px 14px;
+    cursor: pointer;
+    transition: all .18s ease;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .driver-chip:hover {
+    background: var(--green-leaf-light);
+    border-color: var(--green-leaf-mid);
+    transform: translateY(-1px);
+  }
+
+  .driver-chip.active {
+    background: var(--green-leaf-light);
+    border-color: var(--green-leaf);
+    border-width: 1.5px;
+  }
+
+  .driver-chip .chip-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  /* CHAIN BAND */
+  .chain-band {
+    background: linear-gradient(135deg, #d4edda 0%, #c8e6c0 50%, #d4edda 100%);
+    background: var(--green-leaf-light);
+    border: 1px solid var(--green-leaf-mid);
+    border-radius: var(--radius-lg);
+    padding: 16px 16px 14px;
+    margin-bottom: 12px;
+  }
+
+  .chain-band-title {
+    font-family: 'Arial', serif;
+    font-size: 13px;
+    color: var(--green-leaf);
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: .01em;
+  }
+
+  .chain-nodes {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .chain-node {
+    flex: 1;
+    background: var(--bg-card);
+    border: 0.5px solid var(--green-leaf-mid);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px 8px;
+    cursor: pointer;
+    transition: all .18s ease;
+    text-align: center;
+    min-width: 0;
+    position: relative;
+  }
+
+  .chain-node:hover {
+    background: #C0DD97;
+    border-color: var(--green-leaf);
+    transform: translateY(-2px);
+    z-index: 1;
+  }
+
+  .chain-node.active {
+    background: #C0DD97;
+    border-color: var(--green-leaf);
+    border-width: 1.5px;
+    transform: translateY(-2px);
+    z-index: 1;
+  }
+
+  .chain-node .node-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--green-leaf);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .chain-node .node-sub {
+    font-size: 10px;
+    color: #5a8a2a;
+    line-height: 1.3;
+  }
+
+  .chain-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    flex-shrink: 0;
+    color: var(--green-mid);
+    font-size: 16px;
+    line-height: 1;
+    margin-top: -4px;
+  }
+
+  /* BOTTOM BAR */
+  .bottom-bar {
+    background: var(--green-deep);
+    border-radius: var(--radius-pill);
+    padding: 12px 20px;
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .18s ease;
+    margin-bottom: 0;
+  }
+
+  .bottom-bar:hover {
+    background: #085041;
+    transform: translateY(-1px);
+  }
+
+  .bottom-bar.active {
+    background: #085041;
+    outline: 2px solid var(--green-light);
+    outline-offset: 2px;
+  }
+
+  .bar-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-pale);
+    letter-spacing: .02em;
+  }
+
+  .bar-sep {
+    font-size: 13px;
+    color: var(--green-light);
+    padding: 0 10px;
+  }
+
+  /* DETAIL PANEL */
+  .detail-panel {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    margin-top: 14px;
+    animation: slideup .2s ease;
+    position: relative;
+  }
+
+  @keyframes slideup {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-panel.visible { display: block; }
+
+  .panel-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: none;
+    border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+    transition: all .15s;
+    font-family: inherit;
+  }
+
+  .panel-close:hover {
+    background: var(--bg);
+    color: var(--text-primary);
+  }
+
+  .panel-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 10px;
+  }
+
+  .tag-driver { background: var(--green-leaf-light); color: var(--green-leaf); }
+  .tag-chain  { background: var(--green-pale); color: var(--green-deep); }
+  .tag-govern { background: var(--green-deep); color: var(--green-pale); }
+
+  .panel-title {
+    font-family: 'Arial', serif;
+    font-size: 17px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    padding-right: 60px;
+    line-height: 1.3;
+  }
+
+  .panel-body {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .panel-body ul {
+    padding-left: 18px;
+    margin-top: 6px;
+  }
+
+  .panel-body li {
+    margin-bottom: 4px;
+  }
+
+  .panel-body p { margin-bottom: 6px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .drivers-row { gap: 6px; }
+    .driver-chip { flex: 1 1 calc(50% - 6px); min-width: 0; }
+    .chain-nodes { flex-wrap: wrap; gap: 6px; }
+    .chain-arrow { display: none; }
+    .chain-node { flex: 1 1 calc(33% - 6px); min-width: 80px; }
+    .bar-sep { padding: 0 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Productive use of energy in the agrifood chain</h1>
+  <p>Click any element to explore details</p>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Contextual drivers</div>
+  <div class="drivers-row">
+    <div class="driver-chip" onclick="show(&#39;tech&#39;)">
+      <div class="chip-label">Technology, innovation &amp; infrastructure</div>
+    </div>
+    <div class="driver-chip" onclick="show(&#39;economic&#39;)">
+      <div class="chip-label">Economic &amp; market drivers</div>
+    </div>
+    <div class="driver-chip" onclick="show(&#39;socio&#39;)">
+      <div class="chip-label">Socio-cultural drivers</div>
+    </div>
+    <div class="driver-chip" onclick="show(&#39;political&#39;)">
+      <div class="chip-label">Political &amp; institutional drivers</div>
+    </div>
+    <div class="driver-chip" onclick="show(&#39;env&#39;)">
+      <div class="chip-label">Environmental drivers</div>
+    </div>
+  </div>
+
+  <div class="chain-band">
+    <div class="chain-band-title">Productive use of energy in agrifood chain</div>
+    <div class="chain-nodes">
+      <div class="chain-node" onclick="show(&#39;input&#39;)">
+        <div class="node-label">Input</div>
+        <div class="node-sub">Seeds, feed, fertilizer</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;production&#39;)">
+        <div class="node-label">Production</div>
+        <div class="node-sub">On-farm energy use</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;storage&#39;)">
+        <div class="node-label">Storage &amp; handling</div>
+        <div class="node-sub">Cold chain</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;transport&#39;)">
+        <div class="node-label">Transport</div>
+        <div class="node-sub">Farm to market</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;processing&#39;)">
+        <div class="node-label">Processing</div>
+        <div class="node-sub">Value addition</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;marketing&#39;)">
+        <div class="node-label">Marketing &amp; distribution</div>
+        <div class="node-sub">Retail, packaging</div>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-node" onclick="show(&#39;consumption&#39;)">
+        <div class="node-label">Consumption</div>
+        <div class="node-sub">Cooking, cooling</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar" onclick="show(&#39;govern&#39;)">
+    <span class="bar-item">Access</span>
+    <span class="bar-sep">|</span>
+    <span class="bar-item">Agency</span>
+    <span class="bar-sep">|</span>
+    <span class="bar-item">Power</span>
+    <span class="bar-sep">|</span>
+    <span class="bar-item">Governance</span>
+  </div>
+
+  <div id="detail-panel" class="detail-panel">
+    <button class="panel-close" onclick="closePanel()">✕ close</button>
+    <span class="panel-tag tag-driver">Contextual driver</span>
+    <div class="panel-title">Political &amp; institutional drivers</div>
+    <div class="panel-body"><p>Policies, regulations, subsidies, and institutional frameworks that create the enabling environment for energy investment. Includes national energy policies, agricultural extension services, and trade regulations.</p><p>The presence or absence of functional rural institutions and cooperatives is a critical determinant of whether smallholders can access productive energy services.</p></div>
+  </div>
+
+</div>
+
+<script>
+const data = {
+  tech: {
+    tag: 'driver', tagLabel: 'Contextual driver',
+    title: 'Technology, innovation & infrastructure',
+    body: '<p>Physical and digital infrastructure enabling energy access along the food chain. This includes rural electrification grids, off-grid solar solutions, mobile connectivity for precision farming, and cold-chain infrastructure.</p><p>Innovations in energy-efficient machinery and renewable energy technologies directly shape how and where productive energy can be deployed across the agrifood system.</p>'
+  },
+  economic: {
+    tag: 'driver', tagLabel: 'Contextual driver',
+    title: 'Economic & market drivers',
+    body: '<p>Market forces, commodity prices, access to finance, and cost structures that determine investment in energy-efficient equipment.</p><p>Smallholders often cannot afford upfront capital for energy-efficient technologies, making credit access, subsidies, and business models (e.g. pay-as-you-go solar) critical enablers across the chain.</p>'
+  },
+  socio: {
+    tag: 'driver', tagLabel: 'Contextual driver',
+    title: 'Socio-cultural drivers',
+    body: '<p>Cultural norms, gender dynamics, community practices, and social networks that influence energy adoption and food system behaviour.</p><p>Women\'s limited control over productive assets — including energy equipment — is a key dimension. Social trust and local knowledge also shape which technologies communities adopt and sustain.</p>'
+  },
+  political: {
+    tag: 'driver', tagLabel: 'Contextual driver',
+    title: 'Political & institutional drivers',
+    body: '<p>Policies, regulations, subsidies, and institutional frameworks that create the enabling environment for energy investment. Includes national energy policies, agricultural extension services, and trade regulations.</p><p>The presence or absence of functional rural institutions and cooperatives is a critical determinant of whether smallholders can access productive energy services.</p>'
+  },
+  env: {
+    tag: 'driver', tagLabel: 'Contextual driver',
+    title: 'Environmental drivers',
+    body: '<p>Climate variability, natural resource availability (water, biomass), and environmental risks that affect both energy demand and supply along the chain.</p><p>Droughts increase irrigation energy needs; deforestation affects biomass energy availability; climate change is altering seasonal patterns and increasing energy demand for cooling and storage.</p>'
+  },
+  input: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Input supply',
+    body: '<p>Energy is used to produce and distribute agricultural inputs:</p><ul><li>Seed processing and storage</li><li>Livestock feed manufacturing and drying</li><li>Fertilizer production (highly energy-intensive globally)</li><li>Pesticide and agrochemical manufacturing</li></ul><p>Energy efficiency gains here have large upstream multiplier effects on the whole chain.</p>'
+  },
+  production: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Production',
+    body: '<p>On-farm energy use for crop and livestock production:</p><ul><li>Mechanisation: tractors, tillers, harvesters</li><li>Irrigation and water pumping (often the largest on-farm energy cost)</li><li>Greenhouses and controlled environment agriculture</li><li>Poultry and livestock housing ventilation</li></ul><p>Solar-powered irrigation pumps are a rapidly growing area of productive use investment in low- and middle-income countries.</p>'
+  },
+  storage: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Storage & handling',
+    body: '<p>Post-harvest energy use to reduce food losses:</p><ul><li>Cold storage and refrigeration (critical for perishables)</li><li>Moisture control and drying facilities</li><li>Mechanised sorting, grading, and packaging lines</li><li>Grain silos with aeration systems</li></ul><p>Post-harvest losses can exceed 30–40% in low-income countries — much of this is addressable with reliable cold-chain energy access.</p>'
+  },
+  transport: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Transport & logistics',
+    body: '<p>Movement of food from farm to consumer:</p><ul><li>Farm-to-collection-centre transport (often informal, high emissions)</li><li>Collection centre to processing facility or wholesale market</li><li>Refrigerated transport for perishables</li><li>Warehouse operations and road, rail, maritime freight</li></ul><p>Transport is a major source of food system greenhouse gas emissions and a key target for electrification efforts.</p>'
+  },
+  processing: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Value-added processing',
+    body: '<p>Energy-intensive transformation of raw agricultural produce:</p><ul><li>Drying (grains, fruits, fish, herbs)</li><li>Milling (grain, cassava, spices)</li><li>Grinding and crushing (oilseeds, pulses)</li><li>Packaging, sealing, canning, and preservation</li></ul><p>Small and medium agro-processors often rely on diesel generators — transitioning these to renewable energy is a high-impact intervention for emissions and cost reduction.</p>'
+  },
+  marketing: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Marketing & distribution',
+    body: '<p>Final-mile energy use bringing food to consumers:</p><ul><li>Retail refrigeration and display cases</li><li>Packaging facilities and cold storage at distribution hubs</li><li>Market stall cooling</li></ul><p>Urban food markets in low- and middle-income countries often lack reliable electricity, leading to spoilage and food safety risks that disproportionately affect women traders.</p>'
+  },
+  consumption: {
+    tag: 'chain', tagLabel: 'Agrifood chain stage',
+    title: 'Consumption',
+    body: '<p>Household and food service energy use:</p><ul><li>Cooking (the dominant energy use for most households — biomass, LPG, electric)</li><li>Refrigeration for food preservation at home</li><li>Food preparation appliances</li></ul><p>Clean cooking is one of the largest energy access challenges globally, with major health, gender, and climate implications. Transitioning from solid biomass to clean fuels is a central food-energy nexus priority.</p>'
+  },
+  govern: {
+    tag: 'govern', tagLabel: 'Cross-cutting principle',
+    title: 'Access · Agency · Power · Governance',
+    body: '<p>These four cross-cutting principles shape who benefits from productive use of energy across the entire agrifood chain:</p><ul><li><strong>Access</strong> — Who can physically and economically reach energy services? Rural women and smallholders are most often excluded from formal energy markets.</li><li><strong>Agency</strong> — Who has decision-making power over energy choices and resources at farm and household level?</li><li><strong>Power</strong> — How do structural inequalities (gender, class, caste, ethnicity) determine energy access and the distribution of benefits along the chain?</li><li><strong>Governance</strong> — What institutions, rules, and norms govern energy systems and food systems, and how accountable are they to the most vulnerable actors?</li></ul>'
+  }
+};
+
+let current = null;
+
+function show(id) {
+  const panel = document.getElementById('detail-panel');
+  document.querySelectorAll('.driver-chip, .chain-node, .bottom-bar').forEach(el => el.classList.remove('active'));
+
+  if (current === id) {
+    current = null;
+    panel.classList.remove('visible');
+    return;
+  }
+
+  current = id;
+  const d = data[id];
+
+  panel.innerHTML = `
+    <button class="panel-close" onclick="closePanel()">✕ close</button>
+    <span class="panel-tag tag-${d.tag}">${d.tagLabel}</span>
+    <div class="panel-title">${d.title}</div>
+    <div class="panel-body">${d.body}</div>
+  `;
+  panel.classList.add('visible');
+
+  document.querySelectorAll('.driver-chip, .chain-node, .bottom-bar').forEach(el => {
+    const oc = el.getAttribute('onclick') || '';
+    if (oc.includes(`'${id}'`)) el.classList.add('active');
+  });
+
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closePanel() {
+  current = null;
+  document.getElementById('detail-panel').classList.remove('visible');
+  document.querySelectorAll('.driver-chip, .chain-node, .bottom-bar').forEach(el => el.classList.remove('active'));
+}
+</script>
+
+
+</body></html>
